@@ -1,32 +1,68 @@
-import React from 'react'
-import '../styles/item.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCirclePlus, faCircleMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import "../styles/item.css";
+import Button from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCirclePlus,
+  faCircleMinus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
-function CartItem() {
+function CartItem({ item, updateTotal, updateItemDeleted}) {
+  const [qty, setQty] = useState(item.qty);
+  const [price, setPrice] = useState(item.price * item.qty);
+
+  function handleQtyUpdate(count) {
+    if (qty === 0 && count === -1) return;
+
+    const newQty = qty + count;
+		const newPrice = item.price * newQty
+		item.totalItemQty = newQty
+		item.totalItemPrice = newPrice
+    setQty(newQty);
+    setPrice(newPrice);
+		updateTotal();
+  }
+
   return (
-    <div className="cart-item">
-			{/* <table>
-				<tr>
-					<td><img src="/images/Pathar.jpg" alt="stone" /></td>
-					<td>Stone</td>
-				</tr>
-				<tr>
-					<td><span><button>-</button> 2 <button>+</button></span></td>
-					<td>$100</td>
-				</tr>
-			</table> */}
-			<div className="cart-item-detail">
-				<img src="/images/Pathar.jpg" alt="stone" />
-				<div className="cart-item-cost-detail">
-					<h4>Stone</h4>
-					<span><button><FontAwesomeIcon icon={faTrash} style={{color: "#12971b",}} /></button></span>
-					<h4>$100</h4>
-					<div className='cart-item-qty'><button><FontAwesomeIcon icon={faCircleMinus} style={{color: "#2cb835",}} /></button><span>2</span><button><FontAwesomeIcon icon={faCirclePlus} style={{color: "#2cb835",}} /></button></div>
-				</div>
-			</div>
-		</div>
-  )
+    <div className="cart-item" onChange={updateTotal()}>
+      <div className="cart-item-detail">
+        <img src={item.image} alt="stone" />
+        <div className="cart-item-cost-detail">
+          <h4>{item.name}</h4>
+          <span>
+            <Button>
+              <FontAwesomeIcon icon={faTrash} style={{ color: "#12971b" }} onClick={updateItemDeleted} />
+            </Button>
+          </span>
+          <h4>${price}</h4>
+          <div className="cart-item-qty">
+            <Button
+              onClick={() => {
+                handleQtyUpdate(-1);
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faCircleMinus}
+                style={{ color: "#2cb835" }}
+              />
+            </Button>
+            <span>{qty}</span>
+            <Button
+              onClick={() => {
+                handleQtyUpdate(1);
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faCirclePlus}
+                style={{ color: "#2cb835" }}
+              />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default CartItem
+export default CartItem;

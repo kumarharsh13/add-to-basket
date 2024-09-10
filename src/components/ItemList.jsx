@@ -1,24 +1,19 @@
-import React from 'react'
-import '../styles/item.css'
-import Item from './Item'
+import React from "react";
+import "../styles/item.css";
+import Item from "./Item";
 
-function ItemList() {
+function ItemList({ products, toAddItemInCart }) {
   return (
-    <div className='item-list'>
-      <Item />
-			<Item />
-			<Item />
-			<Item />
-			<Item />
-			<Item />
-      <Item />
-			<Item />
-			<Item />
-			<Item />
-			<Item />
-			<Item />
+    <div className="item-list">
+      {products.map((product) => (
+        <Item
+          key={product.id}
+          product={product}
+          toAddItemInCart={toAddItemInCart}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default ItemList
+export default ItemList;

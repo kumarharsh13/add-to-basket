@@ -7,7 +7,6 @@
   font-optical-sizing: auto;
   font-weight: bolder;
   font-size: 2rem;
-
 }
 
 .home {
@@ -36,11 +35,11 @@
   width: 22rem; /* Width of the fixed cart */
   height: 100vh; /* Full viewport height */
   padding: 2rem;
-  background-color: #E5FFE6;
+  background-color: #e5ffe6;
   border-left: 2px solid #2ba933;
 }
 
-button {
-  background-color: #2CB835;
+.button {
+  background-color: #2cb835;
   color: white;
 }
