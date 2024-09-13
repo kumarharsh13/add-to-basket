@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/add-to-basket/static/css/main.ae5513e4.css",
+    "main.js": "/add-to-basket/static/js/main.5c4c4e0c.js",
+    "index.html": "/add-to-basket/index.html",
+    "main.ae5513e4.css.map": "/add-to-basket/static/css/main.ae5513e4.css.map",
+    "main.5c4c4e0c.js.map": "/add-to-basket/static/js/main.5c4c4e0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae5513e4.css",
+    "static/js/main.5c4c4e0c.js"
+  ]
+}
