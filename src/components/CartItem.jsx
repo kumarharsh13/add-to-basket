@@ -37,7 +37,7 @@ function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
             <Button>
               <FontAwesomeIcon
                 icon={faTrash}
-                style={{ color: "#12971b" }}
+                style={{ color: "#6b4600" }}
                 onClick={() => {
                   toRemoveItemFromCart(item);
                 }}
@@ -54,7 +54,7 @@ function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
             >
               <FontAwesomeIcon
                 icon={faCircleMinus}
-                style={{ color: "#2cb835" }}
+                style={{ color: "#6b4600" }}
               />
             </Button>
             <span>{qty}</span>
@@ -65,7 +65,7 @@ function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
             >
               <FontAwesomeIcon
                 icon={faCirclePlus}
-                style={{ color: "#2cb835" }}
+                style={{ color: "#6b4600" }}
               />
             </Button>
           </div>

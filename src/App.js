@@ -3,81 +3,7 @@ import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 import { useState } from "react";
-
-const products_list = [
-  {
-    id: 101,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-  {
-    id: 102,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-  {
-    id: 103,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-  {
-    id: 104,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-  {
-    id: 105,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-  {
-    id: 106,
-    name: "Stone",
-    description: "Paani Me Pathhaarrrr",
-    image: "/images/Pathar.jpg",
-    rating: 5,
-    qty: 1,
-    price: 20,
-    item_added: false,
-    totalItemQty: 1,
-    totalItemPrice: 20,
-  },
-];
+import products_list from "./products_list.json";
 
 function App() {
   const [products, setProducts] = useState(products_list);
@@ -115,6 +41,12 @@ function App() {
     );
   };
 
+  function handleCancel() {
+    setProducts(products_list);
+    setAddToCart([]);
+    setTotalQty(0);
+    setTotalPrice(0);
+  }
   function handleTotalQtyAndPrice() {
     const totals = addToCart.reduce(
       (index, cartItem) => {
@@ -143,6 +75,7 @@ function App() {
           updateTotal={handleTotalQtyAndPrice}
           totalQty={totalQty}
           totalPrice={totalPrice}
+          handleCancel={handleCancel}
         ></Cart>
       </div>
     </div>

@@ -2,7 +2,6 @@ import "../styles/item.css";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 
 function Item({ product, toAddItemInCart, updateProduct }) {
 
@@ -21,7 +20,7 @@ function Item({ product, toAddItemInCart, updateProduct }) {
         <p>{product.description}</p>
         <p>
           <b>Rating:</b> {product.rating}{" "}
-          <FontAwesomeIcon icon={faStar} style={{ color: "#2CB835" }} />
+          <FontAwesomeIcon icon={faStar} style={{ color: "#6b4600" }} />
         </p>
         <div className="price-cart">
           <h4>${product.price}</h4>

@@ -7,7 +7,7 @@ function MyCart() {
   return (
     <div className='my-cart'>
 			<h2>My Cart</h2>
-			<h2><FontAwesomeIcon icon={faCartShopping} style={{color: "#25982c",}} /></h2>
+			<h2><FontAwesomeIcon icon={faCartShopping} style={{color: "#6b4600",}} /></h2>
 		</div>
   )
 }

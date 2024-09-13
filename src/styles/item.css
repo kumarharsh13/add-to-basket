@@ -30,15 +30,16 @@
   justify-content: center;
   width: 17rem;
   margin-top: -2rem;
-  background-color: #e5ffe6;
+  background-color: #faeed7;
   border-radius: 1rem;
   padding: 1rem 0rem 1rem 1rem;
   height: auto;
 }
 
-.item-details > p,
-.item-details > .button {
+.item-details>p,
+.item-details>.button {
   margin-top: 0.03rem;
+  padding-right: 0.5rem;
 }
 
 .price-cart {
@@ -68,7 +69,7 @@
 .cart-item {
   margin: 2px 0px 2px 0px;
   padding: 8px 0px 8px 0px;
-  border-bottom: 1px solid #2ba933;
+  border-bottom: 1px solid #6b4600;
 }
 
 .cart-item img {
@@ -87,7 +88,8 @@
 
 .cart-item-list {
   overflow-x: hidden;
-  overflow-y: auto; /* Vertical scrollbar for cart */
+  overflow-y: auto;
+  /* Vertical scrollbar for cart */
   height: 60vh;
 }
 

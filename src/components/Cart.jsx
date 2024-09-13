@@ -9,6 +9,7 @@ function Cart({
   updateTotal,
   totalQty,
   totalPrice,
+  handleCancel,
 }) {
   return (
     <div className="cart">
@@ -24,8 +25,15 @@ function Cart({
           <h3>Price: ${totalPrice}</h3>
         </div>
         <div className="item-action-btn">
-          <Button>{"Buy"}</Button>
-          <Button>{"Cancel"}</Button>
+          <Button
+            onClick={() => {
+              alert("Your Basket is on Its Way!");
+              handleCancel();
+            }}
+          >
+            Buy
+          </Button>{" "}
+          <Button onClick={handleCancel}>Cancel</Button>
         </div>
       </div>
     </div>

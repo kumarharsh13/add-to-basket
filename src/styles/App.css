@@ -32,14 +32,16 @@
   position: fixed;
   right: 0;
   top: 0;
-  width: 22rem; /* Width of the fixed cart */
-  height: 100vh; /* Full viewport height */
+  width: 22rem;
+  /* Width of the fixed cart */
+  height: 100vh;
+  /* Full viewport height */
   padding: 2rem;
-  background-color: #e5ffe6;
-  border-left: 2px solid #2ba933;
+  background-color: #faeed7;
+  border-left: 2px solid #6b4600;
 }
 
 .button {
-  background-color: #2cb835;
+  background-color: #6b4600;
   color: white;
 }
