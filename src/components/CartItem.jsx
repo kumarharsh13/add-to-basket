@@ -30,7 +30,7 @@ function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
   return (
     <div className="cart-item" onChange={updateTotal()}>
       <div className="cart-item-detail">
-        <img src={item.image} alt="stone" />
+        <img src={item.image} alt={item.name} />
         <div className="cart-item-cost-detail">
           <h4>{item.name}</h4>
           <span>

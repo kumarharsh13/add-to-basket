@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import CartItemList from "./CartItemList";
 import MyCart from "./MyCart";
 import Button from "./Button";
