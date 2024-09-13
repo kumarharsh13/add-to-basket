@@ -9,7 +9,7 @@ function Item({ product, toAddItemInCart }) {
 
   const handleAddToCart = () => {
     toAddItemInCart(product);
-    setIsAdded(true);
+    setIsAdded(product.item_added);
   };
 
   return (

@@ -8,7 +8,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
-function CartItem({ item, updateTotal, updateItemDeleted}) {
+function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
   const [qty, setQty] = useState(item.qty);
   const [price, setPrice] = useState(item.price * item.qty);
 
@@ -16,12 +16,15 @@ function CartItem({ item, updateTotal, updateItemDeleted}) {
     if (qty === 0 && count === -1) return;
 
     const newQty = qty + count;
-		const newPrice = item.price * newQty
-		item.totalItemQty = newQty
-		item.totalItemPrice = newPrice
+    const newPrice = item.price * newQty;
+    item.totalItemQty = newQty;
+    item.totalItemPrice = newPrice;
     setQty(newQty);
     setPrice(newPrice);
-		updateTotal();
+    updateTotal();
+		if(item.totalItemQty <= 0) {
+			toRemoveItemFromCart(item)
+		}
   }
 
   return (
@@ -32,9 +35,16 @@ function CartItem({ item, updateTotal, updateItemDeleted}) {
           <h4>{item.name}</h4>
           <span>
             <Button>
-              <FontAwesomeIcon icon={faTrash} style={{ color: "#12971b" }} onClick={updateItemDeleted} />
+              <FontAwesomeIcon
+                icon={faTrash}
+                style={{ color: "#12971b" }}
+                onClick={() => {
+                  toRemoveItemFromCart(item);
+                }}
+              />
             </Button>
           </span>
+          <h4>${item.price}</h4>
           <h4>${price}</h4>
           <div className="cart-item-qty">
             <Button

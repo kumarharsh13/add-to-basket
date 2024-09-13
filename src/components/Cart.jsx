@@ -3,26 +3,20 @@ import CartItemList from "./CartItemList";
 import MyCart from "./MyCart";
 import Button from "./Button";
 
-function Cart({ cartItems }) {
-  const [totalQty, setTotalQty] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  function handleTotalQtyAndPrice() {
-    const totals = cartItems.reduce((index, cartItem) => {
-      index.totalItemQty += Number(cartItem.totalItemQty);
-      index.totalItemPrice += Number(cartItem.totalItemPrice) * Number(cartItem.totalItemQty);
-      return index;
-    }, { totalItemQty: 0, totalItemPrice: 0 });
-    setTotalQty(totals.totalItemQty);
-    setTotalPrice(totals.totalItemPrice);
-  };
-
+function Cart({
+  cartItems,
+  toRemoveItemFromCart,
+  updateTotal,
+  totalQty,
+  totalPrice,
+}) {
   return (
     <div className="cart">
       <MyCart />
       <CartItemList
         cartItems={cartItems}
-        updateTotal={handleTotalQtyAndPrice}
+        updateTotal={updateTotal}
+        toRemoveItemFromCart={toRemoveItemFromCart}
       />
       <div className="item-action">
         <div className="item-total">
