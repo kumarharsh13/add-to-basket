@@ -4,7 +4,83 @@ import Cart from "./components/Cart";
 import Header from "./components/Header";
 import { useState } from "react";
 
+const products_list = [
+  {
+    id: 101,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+  {
+    id: 102,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+  {
+    id: 103,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+  {
+    id: 104,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+  {
+    id: 105,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+  {
+    id: 106,
+    name: "Stone",
+    description: "Paani Me Pathhaarrrr",
+    image: "/images/Pathar.jpg",
+    rating: 5,
+    qty: 1,
+    price: 20,
+    item_added: false,
+    totalItemQty: 1,
+    totalItemPrice: 20,
+  },
+];
+
 function App() {
+  const [products, setProducts] = useState(products_list);
   const [addToCart, setAddToCart] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -18,7 +94,14 @@ function App() {
     setAddToCart(
       updatedCartItems.filter((item) => item.id !== itemToRemoved.id)
     );
-    handleTotalQtyAndPrice();
+    itemToRemoved.item_added = false;
+
+    if (updatedCartItems.length === 1) {
+      setTotalQty(0);
+      setTotalPrice(0);
+    } else {
+      handleTotalQtyAndPrice();
+    }
   };
 
   function handleTotalQtyAndPrice() {
@@ -33,81 +116,6 @@ function App() {
     setTotalQty(totals.totalItemQty);
     setTotalPrice(totals.totalItemPrice);
   }
-
-  const products = [
-    {
-      id: 101,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-    {
-      id: 102,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-    {
-      id: 103,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-    {
-      id: 104,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-    {
-      id: 105,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-    {
-      id: 106,
-      name: "Stone",
-      description: "Paani Me Pathhaarrrr",
-      image: "/images/Pathar.jpg",
-      rating: 5,
-      qty: 1,
-      price: 20,
-      item_added: false,
-      totalItemQty: 1,
-      totalItemPrice: 20,
-    },
-  ];
 
   return (
     <div className="App">

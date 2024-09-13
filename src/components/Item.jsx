@@ -5,10 +5,11 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 function Item({ product, toAddItemInCart }) {
-  const [isAdded, setIsAdded] = useState(product.item_added || false);
+  const [isAdded, setIsAdded] = useState(product.item_added);
 
-  const handleAddToCart = () => {
+  const handleAddToCartButton = () => {
     toAddItemInCart(product);
+    product.item_added = true
     setIsAdded(product.item_added);
   };
 
@@ -29,7 +30,7 @@ function Item({ product, toAddItemInCart }) {
           {isAdded ? (
             <Button disabled>{"Added"}</Button>
           ) : (
-            <Button onClick={handleAddToCart}>{"Add to Cart"}</Button>
+            <Button onClick={handleAddToCartButton}>{"Add to Cart"}</Button>
           )}
         </div>
       </div>
