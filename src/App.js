@@ -102,6 +102,17 @@ function App() {
     } else {
       handleTotalQtyAndPrice();
     }
+    updateProduct(itemToRemoved);
+  };
+
+  const updateProduct = (item) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === item.id
+          ? { ...product, item_added: !product.item_added }
+          : product
+      )
+    );
   };
 
   function handleTotalQtyAndPrice() {
@@ -124,6 +135,7 @@ function App() {
         <Product
           products={products}
           toAddItemInCart={handleAddToCart}
+          updateProduct={updateProduct}
         ></Product>
         <Cart
           cartItems={addToCart}

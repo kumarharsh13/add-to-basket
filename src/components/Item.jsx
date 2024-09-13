@@ -4,13 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function Item({ product, toAddItemInCart }) {
-  const [isAdded, setIsAdded] = useState(product.item_added);
+function Item({ product, toAddItemInCart, updateProduct }) {
 
   const handleAddToCartButton = () => {
     toAddItemInCart(product);
-    product.item_added = true
-    setIsAdded(product.item_added);
+    updateProduct(product)
   };
 
   return (
@@ -27,7 +25,7 @@ function Item({ product, toAddItemInCart }) {
         </p>
         <div className="price-cart">
           <h4>${product.price}</h4>
-          {isAdded ? (
+          {product.item_added ? (
             <Button disabled>{"Added"}</Button>
           ) : (
             <Button onClick={handleAddToCartButton}>{"Add to Cart"}</Button>
