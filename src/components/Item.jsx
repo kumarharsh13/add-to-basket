@@ -13,7 +13,7 @@ function Item({ product, toAddItemInCart, updateProduct }) {
   return (
     <div className="item">
       <div className="item-image">
-        <img src={product.image} alt={product.name} />
+        <img src={`${process.env.PUBLIC_URL}${product.image}`} alt={product.name} />
       </div>
       <div className="item-details">
         <h3>{product.name}</h3>
