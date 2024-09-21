@@ -1,6 +1,7 @@
 import CartItemList from "./CartItemList";
 import MyCart from "./MyCart";
 import Button from "./Button";
+import '../styles/item.css'
 
 function Cart({
   cartItems,
@@ -9,10 +10,11 @@ function Cart({
   totalQty,
   totalPrice,
   handleCancel,
+  toHandleCartToggle
 }) {
   return (
     <div className="cart">
-      <MyCart />
+      <MyCart toHandleCartToggle={toHandleCartToggle} />
       <CartItemList
         cartItems={cartItems}
         updateTotal={updateTotal}

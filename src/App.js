@@ -10,6 +10,7 @@ function App() {
   const [addToCart, setAddToCart] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleAddToCart = (item) => {
     setAddToCart((prevCart) => [...prevCart, item]);
@@ -60,9 +61,13 @@ function App() {
     setTotalPrice(totals.totalItemPrice);
   }
 
+  const handleCartToggle = () => {
+    setIsCartOpen((prev) => !prev);
+  };
+
   return (
-    <div className="App">
-      <Header />
+    <div className={`App ${isCartOpen ? 'nav-open' : ''}`}>
+      <Header toHandleCartToggle={handleCartToggle} />
       <div className="home">
         <Product
           products={products}
@@ -76,6 +81,7 @@ function App() {
           totalQty={totalQty}
           totalPrice={totalPrice}
           handleCancel={handleCancel}
+          toHandleCartToggle={handleCartToggle}
         ></Cart>
       </div>
     </div>

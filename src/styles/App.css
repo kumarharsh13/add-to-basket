@@ -11,17 +11,17 @@
 
 .home {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   justify-content: center;
   align-items: center;
-  column-gap: 20rem;
+  column-gap: 10rem;
 }
 
 .product {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 6rem;
+  margin-left: 4rem;
 }
 
 .cart {
@@ -44,4 +44,29 @@
 .button {
   background-color: #6b4600;
   color: white;
+}
+
+@media only screen and (max-width: 620px) {
+
+  html {
+    font-size: 80%;
+  }
+
+  .home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .header {
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+  }
+
+  .product {
+    margin-left: 0rem;
+  }
 }
