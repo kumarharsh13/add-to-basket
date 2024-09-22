@@ -3,7 +3,7 @@ import "../styles/item.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
-function Header({ toHandleCartToggle }) {
+function Header({ toHandleCartToggle, itemInCart }) {
 
   return (
     <div className="header">
@@ -18,6 +18,7 @@ function Header({ toHandleCartToggle }) {
             toHandleCartToggle();
           }}
         />
+        <span className="badge">{itemInCart.length}</span>
       </div>
     </div>
   );

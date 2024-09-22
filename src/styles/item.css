@@ -153,7 +153,6 @@
 .icon-mobile-nav {
   height: 2rem;
   width: 2rem;
-  color: #333;
 }
 
 .icon-mobile-nav[name="close-outline"] {
@@ -171,7 +170,6 @@
 
   .header {
     font-size: 1rem;
-    margin: 0;
   }
 
   .product {
@@ -192,6 +190,7 @@
   .btn-mobile-nav {
     display: block;
     z-index: 99999;
+    position: relative;
   }
 
   .cart {
@@ -244,7 +243,25 @@
     width: 20em;
   }
 
-  .cart-item-detail {}
+  .nav-open .badge {
+    display: none;
+  }
+
+  .badge {
+    border: 1.2px solid #6b4600;
+    border-radius: 50%;
+    height: 0.6rem;
+    width: 0.6rem;
+    position: absolute;
+    text-align: center;
+    padding: 0.6rem;
+    top: -50%;
+    right: -50%;
+    font-size: 0.8rem;
+    font-weight: 900;
+    background: #faeed7;
+    color: #6b4600;
+  }
 
   .item-action-btn {
     display: flex;

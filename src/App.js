@@ -66,8 +66,8 @@ function App() {
   };
 
   return (
-    <div className={`App ${isCartOpen ? 'nav-open' : ''}`}>
-      <Header toHandleCartToggle={handleCartToggle} />
+    <div className={`App ${isCartOpen ? "nav-open" : ""}`}>
+      <Header toHandleCartToggle={handleCartToggle} itemInCart={addToCart} />
       <div className="home">
         <Product
           products={products}
