@@ -7,8 +7,12 @@ import {
   faCircleMinus,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../App";
 
-function CartItem({ item, updateTotal, toRemoveItemFromCart }) {
+function CartItem({ item }) {
+  const {updateTotal, toRemoveItemFromCart} = useContext(CartContext)
+
   const [qty, setQty] = useState(item.qty);
   const [price, setPrice] = useState(item.price * item.qty);
 

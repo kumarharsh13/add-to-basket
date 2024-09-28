@@ -2,8 +2,12 @@ import React from 'react'
 import '../styles/item.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faX  } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from "react";
+import { CartContext } from "../App";
 
-function MyCart({toHandleCartToggle}) {
+function MyCart() {
+
+  const {toHandleCartToggle} = useContext(CartContext)
   return (
     <div className='my-cart'>
       <div className='my-cart-heading'>

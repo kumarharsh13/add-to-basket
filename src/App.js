@@ -2,8 +2,10 @@ import "./styles/App.css";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import products_list from "./products_list.json";
+
+export const CartContext = createContext()
 
 function App() {
   const [products, setProducts] = useState(products_list);
@@ -66,25 +68,26 @@ function App() {
   };
 
   return (
-    <div className={`App ${isCartOpen ? "nav-open" : ""}`}>
-      <Header toHandleCartToggle={handleCartToggle} itemInCart={addToCart} />
-      <div className="home">
-        <Product
-          products={products}
-          toAddItemInCart={handleAddToCart}
-          updateProduct={updateProduct}
-        ></Product>
-        <Cart
-          cartItems={addToCart}
-          toRemoveItemFromCart={handleDeleteFromCart}
-          updateTotal={handleTotalQtyAndPrice}
-          totalQty={totalQty}
-          totalPrice={totalPrice}
-          handleCancel={handleCancel}
-          toHandleCartToggle={handleCartToggle}
-        ></Cart>
-      </div>
+    <CartContext.Provider value={{
+      products: products,
+      toAddItemInCart: handleAddToCart,
+      updateProduct: updateProduct,
+      cartItems: addToCart,
+      toRemoveItemFromCart: handleDeleteFromCart,
+      updateTotal: handleTotalQtyAndPrice,
+      totalQty: totalQty,
+      totalPrice: totalPrice,
+      handleCancel: handleCancel,
+      toHandleCartToggle: handleCartToggle
+    }}>
+      <div className={`App ${isCartOpen ? "nav-open" : ""}`}>
+        <Header/>
+        <div className="home">
+          <Product />
+          <Cart />
+        </div>
     </div>
+    </CartContext.Provider>
   );
 }
 

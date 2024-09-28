@@ -2,24 +2,17 @@ import CartItemList from "./CartItemList";
 import MyCart from "./MyCart";
 import Button from "./Button";
 import '../styles/item.css'
+import { useContext } from "react";
+import { CartContext } from "../App";
 
-function Cart({
-  cartItems,
-  toRemoveItemFromCart,
-  updateTotal,
-  totalQty,
-  totalPrice,
-  handleCancel,
-  toHandleCartToggle
-}) {
+function Cart() {
+
+  const { totalPrice, totalQty, handleCancel} = useContext(CartContext)
+
   return (
     <div className="cart">
-      <MyCart toHandleCartToggle={toHandleCartToggle} />
-      <CartItemList
-        cartItems={cartItems}
-        updateTotal={updateTotal}
-        toRemoveItemFromCart={toRemoveItemFromCart}
-      />
+      <MyCart />
+      <CartItemList />
       <div className="item-action">
         <div className="item-total">
           <h3>Qty: {totalQty}</h3>

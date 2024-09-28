@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/item.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping} from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../App";
 
-function Header({ toHandleCartToggle, itemInCart }) {
+function Header() {
 
+  const { toHandleCartToggle, cartItems } = useContext(CartContext)
   return (
     <div className="header">
       <h1>🧺 Add To Basket</h1>
@@ -18,7 +20,7 @@ function Header({ toHandleCartToggle, itemInCart }) {
             toHandleCartToggle();
           }}
         />
-        <span className="badge">{itemInCart.length}</span>
+        <span className="badge">{cartItems.length}</span>
       </div>
     </div>
   );

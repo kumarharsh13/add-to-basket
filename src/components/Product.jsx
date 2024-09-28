@@ -1,14 +1,10 @@
 import React from "react";
 import ItemList from "./ItemList";
 
-function Product({ products, toAddItemInCart, updateProduct }) {
+function Product() {
   return (
     <div className="product">
-      <ItemList
-        products={products}
-        toAddItemInCart={toAddItemInCart}
-        updateProduct={updateProduct}
-      />
+      <ItemList />
     </div>
   );
 }

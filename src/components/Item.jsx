@@ -2,14 +2,17 @@ import "../styles/item.css";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../App";
 
-function Item({ product, toAddItemInCart, updateProduct }) {
+function Item({ product }) {
 
   const handleAddToCartButton = () => {
     toAddItemInCart(product);
     updateProduct(product)
   };
 
+  const {toAddItemInCart, updateProduct} = useContext(CartContext)
   return (
     <div className="item">
       <div className="item-image">
